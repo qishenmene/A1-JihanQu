@@ -1,4 +1,4 @@
-public class Appointment {
+public class Appointment implements Comparable<Appointment>{
     
     // Attributes
     private String patientName;
@@ -94,4 +94,27 @@ public class Appointment {
         return "Patient Name: " + patientName + "\nMobile Number: " + mobileNumber + "\nAppointment Time: " + appointmentTime + "\n" + healthProfessional.toString();
     }
 
+    // Compare appointments by time
+    @Override
+    public int compareTo(Appointment other){
+
+        if (other == null){
+            throw new IllegalArgumentException("Appointment cannot be null.");
+        }
+
+        String[] thisParts = appointmentTime.split(":");
+        String[] otherParts = other.appointmentTime.split(":");
+
+        int thisTime = Integer.parseInt(thisParts[0]) * 60 + Integer.parseInt(thisParts[1]);
+
+        int otherTime = Integer.parseInt(otherParts[0]) * 60 + Integer.parseInt(otherParts[1]);
+
+        if (thisTime < otherTime){
+            return -1;
+        } else if (thisTime > otherTime){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }

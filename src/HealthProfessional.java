@@ -81,6 +81,22 @@ public abstract class HealthProfessional {
         return availableDays.clone();
     }
 
+    // Compare health professionals byID
+    @Override
+    public boolean equals(Object obj){
+
+        if (this == obj){
+            return true;
+        }
+
+        if (obj == null || !(obj instanceof HealthProfessional)){
+            return false;
+        }
+
+        HealthProfessional other = (HealthProfessional) obj;
+        return this.id.equals(other.id);
+    }
+
     // Each specific professional must provide its own type
     public abstract String getProfessionalType();
 
