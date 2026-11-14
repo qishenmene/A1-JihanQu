@@ -15,9 +15,7 @@ public abstract class HealthProfessional {
 
         for (int i = 0; i < id.length(); i++) {
             if (id.charAt(i) < '0' || id.charAt(i) > '9') {
-                throw new IllegalArgumentException(
-                    "ID must contain numbers only."
-                );
+                throw new IllegalArgumentException("ID must contain numbers only.");
             }
         }
 
@@ -26,11 +24,9 @@ public abstract class HealthProfessional {
             throw new IllegalArgumentException("Name cannot be empty.");
         }
 
-        // Validate availableDays
+        // Validate available days
         if (availableDays == null || availableDays.length == 0) {
-            throw new IllegalArgumentException(
-                "Available days cannot be empty."
-            );
+            throw new IllegalArgumentException("Available days cannot be empty.");
         }
 
         String[] validDays = {
@@ -57,17 +53,13 @@ public abstract class HealthProfessional {
             }
 
             if (!valid) {
-                throw new IllegalArgumentException(
-                    "Invalid day: " + selectedDay
-                );
+                throw new IllegalArgumentException("Invalid day: " + selectedDay);
             }
 
             // Check for duplicate days
             for (int j = 0; j < i; j++) {
                 if (this.availableDays[i].equals(this.availableDays[j])) {
-                    throw new IllegalArgumentException(
-                        "Duplicate available day."
-                    );
+                    throw new IllegalArgumentException("Duplicate available day.");
                 }
             }
         }
