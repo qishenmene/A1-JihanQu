@@ -126,5 +126,29 @@ public class AssignmentOne{
         System.out.println("\nRemaining Appointments");
         System.out.println("----------------------");
         manager.viewAppointments();
+
+        // Display remaining appointments
+        System.out.println("\nRemaining Appointments");
+        System.out.println("--------------------");
+        manager.viewAppointments();
+
+        // Test searching for a non-existing professional
+        System.out.println("\nTest Unsuccessful Professional Search");
+        manager.searchByProfessionalId("9999");
+
+        // Test searching for a non-existing patient
+        System.out.println("\nTest Unsuccessful Patient Search");
+        manager.searchMobileNumber("040000000");
+
+        // Test invalid appointment time
+        System.out.println("\nTest Invalid Appointment Time");
+
+        try{
+            Appointment invalidAppointment = new Appointment("Test Patient","04000000", "17:00", gp1);
+            manager.addAppointment(invalidAppointment);
+        } catch (IllegalArgumentException e){
+            System.out.println("Invalid appointment time rejected.");
+        }
+
     }
 }
