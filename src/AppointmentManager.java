@@ -122,12 +122,12 @@ public class AppointmentManager {
             if (appointment.getHealthProfessional().getId().equals(professionalId) && appointment.getAppointmentTime().equals(appointmentTime)){
 
                 appointments.remove(i);
-                System.out.println("Appointment cancelled successfulyy.");
+                System.out.println("Appointment cancelled successfully.");
                 return;
             }
         }
 
-        System.out.println("No matching appointment founf. Cancellation failed.");
+        System.out.println("No matching appointment found. Cancellation failed.");
     }
 
     // Cancel appointment by patient mobile number
